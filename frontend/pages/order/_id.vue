@@ -143,7 +143,7 @@ export default {
         this.$confirm('确认关闭？')
           .then(_ => {
 		  this.loading = false;
-		  clearInterval(this.is);
+		  clearInterval(this.id);
 		  this.$message.error("取消支付");
             done();
           })
