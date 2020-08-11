@@ -98,16 +98,15 @@ export default {
         this.getOrderById();
     },
     data(){
-
         return {
             order: undefined,
             orderId: "",
             url: "",
             dialogVisible: false,
-            loading: false
+            loading: false,
+			id: null,
         }
     },
-
     methods: {
         getOrderById(){
             let { id } = this.$route.params;
@@ -122,7 +121,7 @@ export default {
           orderApi.getQRCodeByOrderId(this.order.id).then(res=>{
             this.url = res.data.url;
             this.dialogVisible = true;
-            let id = setInterval(()=>{
+             this.id = setInterval(()=>{
                orderApi.getOrderStatusByOrderNo(this.order.orderNo).then(res=>{
                  if (res.data.success === 1) {
                    clearInterval(id);
@@ -143,6 +142,9 @@ export default {
       handleClose(done) {
         this.$confirm('确认关闭？')
           .then(_ => {
+		  this.loading = false;
+		  clearInterval(this.is);
+		  this.$message.error("取消支付");
             done();
           })
           .catch(_ => {});

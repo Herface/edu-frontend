@@ -117,7 +117,7 @@ export default {
             oldPsw: "",
             newPsW: "",
             orderList: [],
-            uoloadAvatarUrl: "http://localhost/api/oss/oss/image",
+            uoloadAvatarUrl: "http://112.124.19.91/api/oss/oss/image",
             paid: [],
             unpaid: []
         }
