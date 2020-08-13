@@ -80,6 +80,9 @@ dist
 # IDE / Editor
 .idea
 
+
+
+
 # Service worker
 sw.*
 
@@ -89,10 +92,8 @@ sw.*
 # Vim swap files
 *.swp
 
-# vscode workspace
-
+# vscode
+.vscode
 *.code-workspace
 
 *.editorconfig
-
-package-lock.json
