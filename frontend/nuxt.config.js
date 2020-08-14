@@ -74,5 +74,9 @@ export default {
   transition: {
     name: 'page',
     mode: 'out-in'
+  },
+  server: {
+    port: 2333,
+    host: "0.0.0.0"
   }
 }
