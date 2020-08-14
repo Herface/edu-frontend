@@ -1,7 +1,5 @@
 <template>
 <el-row type="flex" justify="center">
-<link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.8.2/skins/default/aliplayer-min.css" />
-<script charset="utf-8" type="text/javascript" src="https://g.alicdn.com/de/prismplayer/2.8.2/aliplayer-min.js"></script>
 <el-col :span="14">
         <div class="prism-player" id="player-con" style="width:100%;height: 500px"></div>
 </el-col>
@@ -133,6 +131,20 @@ export default {
     // mounted(){
     //     this.getPlayAuthById();
     // },
+        head: {
+      script: [
+        {
+          src:
+            'https://g.alicdn.com/de/prismplayer/2.8.2/aliplayer-min.js'
+        }
+      ],
+      link: [
+        {
+          rel: 'stylesheet',
+          href: 'https://g.alicdn.com/de/prismplayer/2.8.2/skins/default/aliplayer-min.css'
+        }
+      ]
+    }
 
 
 
