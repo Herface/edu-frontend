@@ -35,7 +35,7 @@
                       </div>
                     </section>
                     <h3 class="hLh30 txtOf mt10">
-                      <a :href="`/course/${course.id}`" title="表体" class="course-title fsize18 c-333">{{course.title}}</a>
+                      <router-link :to="`/course/${course.id}`" title="表体" class="course-title fsize18 c-333">{{course.title}}</router-link>
                     </h3>
                     <section class="mt10 hLh20 of">
                       <span class="fr jgTag bg-green" v-if="course.price === 0" >
@@ -57,7 +57,7 @@
               <div class="clear"></div>
             </article>
             <section class="tac pt20">
-              <a href="/course" title="全部课程" class="comm-btn c-btn-2">全部课程</a>
+              <router-link to="/course" title="全部课程" class="comm-btn c-btn-2">全部课程</router-link> 
             </section>
           </div>
         </section>
@@ -82,7 +82,7 @@
                       </a>
                     </div>
                     <div class="mt10 hLh30 txtOf tac">
-                      <a :href="`/teacher/${teacher.id}`" :title="teacher.name" class="fsize18 c-666">{{teacher.name}}</a>
+                      <router-link :to="`/teacher/${teacher.id}`" :title="teacher.name" class="fsize18 c-666">{{teacher.name}}></router-link>
                     </div>
                     <div class="hLh30 txtOf tac">
                       <span class="fsize14 c-999">{{teacher.career}}</span>
@@ -99,7 +99,7 @@
               <div class="clear"></div>
             </article>
             <section class="tac pt20">
-              <a href="/teacher" title="全部讲师" class="comm-btn c-btn-2">全部讲师</a>
+              <router-link to="/teacher" title="全部讲师" class="comm-btn c-btn-2">全部讲师></router-link>
             </section>
           </div>
         </section>

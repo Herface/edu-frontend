@@ -22,7 +22,7 @@ export default {
         return request({
             // baseURL: "http://192.168.1.3:82",
             method: "POST",
-            url: `/sms/sms/${mobile}`,
+            url: `/ucenter/member/reg/sms/${mobile}`,
         });
 
     },

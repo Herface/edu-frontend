@@ -7,7 +7,7 @@ export default {
         return request.request({
             method: "GET",
             // baseURL: BASE_URL,
-            url: `/vod/vod/auth/${vid}`,
+            url: `/edu/chapter/video/${vid}`,
         });
     }
 }

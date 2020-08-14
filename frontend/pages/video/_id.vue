@@ -69,7 +69,7 @@ export default {
     methods: {
         play(video){
             this.current = video.id;
-            videoApi.getPlayAuthByVid(video.videoSourceId).then(res=>{
+            videoApi.getPlayAuthByVid(video.id).then(res=>{
                  let auth = res.data.auth;
                  if (!this.player) {
                    courseApi.incrementViewCountByCourseId(this.courseId).then((res=>{}));

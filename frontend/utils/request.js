@@ -3,7 +3,7 @@ import { MessageBox, Message } from 'element-ui'
 import {getToken} from '~/utils/auth';
 // create an axios instance
 const service = axios.create({
-  baseURL: "http://localhost/api", // url = base url + request url
+  baseURL: process.env.baseUrl,  //"http://localhost/api", // url = base url + request url
   // withCredentials: true, // send cookies when cross-domain requests
   timeout: 5000 // request timeout
 })

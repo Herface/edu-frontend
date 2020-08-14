@@ -28,12 +28,7 @@
             <section class="c-attr-mt c-attr-undis">
               <span class="c-fff fsize14">主讲： {{course.teacherName}}&nbsp;&nbsp;&nbsp;</span>
             </section>
-            <section class="c-attr-mt of">
-              <span class="ml10 vam">
-                <em class="icon18 scIcon"></em>
-                <a class="c-fff vam" title="收藏" href="#" >收藏</a>
-              </span>
-            </section>
+
             <section class="c-attr-mt">
               <a @click="toPlay()" href="javascript:;" title="立即观看" class="comm-btn c-btn-3">立即观看</a>
             </section>

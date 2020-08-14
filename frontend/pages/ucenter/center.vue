@@ -19,7 +19,7 @@
                 </el-card>
             </el-col>
             <el-col>
-                <h3 v-if="orderList.length === 0">您还没有购买任何课程
+                <h3 v-if="paid.length === 0">您还没有购买任何课程
                 <el-link type="primary" @click="$router.push('/course')">先去逛逛</el-link></h3>
             </el-col>    
     </el-row>

@@ -81,13 +81,15 @@
     methods: {
         getCode(){
           this.$refs.userForm.validateField("mobile",(valid)=>{
-            console.log(this.sending);
+            // console.log(this.sending);
               if (!valid ){
                 if (this.sending) {
                  this.sending = false;
                 memberApi.getCode(this.member.mobile).then(res=>{
                     this.countDown();
-                });
+                }).catch(err=>{
+                      this.sending = true;
+                    });
                 }
          
             }
@@ -107,11 +109,11 @@
                         this.$message.success("注册成功！");
                         this.$router.push({path: "/login"});
                     });
-                } else {
+
+        } else {
                     this.$message.error("请检查是否填写正确");
                 }
-            });
-
+            })
         },
 
         countDown(){

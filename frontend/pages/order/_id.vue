@@ -124,7 +124,7 @@ export default {
              this.id = setInterval(()=>{
                orderApi.getOrderStatusByOrderNo(this.order.orderNo).then(res=>{
                  if (res.data.success === 1) {
-                   clearInterval(id);
+                   clearInterval(this.id);
                    
                    this.$message.success("支付成功");
                    this.order.status = 1;

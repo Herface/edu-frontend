@@ -16,11 +16,11 @@
   <el-col :span="4">
            <ul class="h-r-login">
             <li v-if="$store.getters['user/userInfo']===null" id="no-login">
-              <a href="/login" title="登录">
+              <a href="javascript:;" @click="$router.push('/login')" title="登录">
                 <span class="vam ml5 el-icon-user">登录</span>
               </a>
               |
-              <a href="/register" title="注册" class="">
+              <a href="javascript:;" @click="$router.push('/register')" title="注册" class="">
                 <span class="vam ml5 el-icon-magic-stick">注册</span>
               </a>
             </li>

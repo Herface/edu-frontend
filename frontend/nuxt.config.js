@@ -29,7 +29,8 @@ export default {
   ** Global CSS
   */
   css: [
-    'element-ui/lib/theme-chalk/index.css'
+    'element-ui/lib/theme-chalk/index.css',
+    'assets/css/main.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -66,5 +67,12 @@ export default {
   */
   build: {
     transpile: [/^element-ui/],
+  },
+  env: {
+    baseUrl: process.env.BASE_URL
+  },
+  transition: {
+    name: 'page',
+    mode: 'out-in'
   }
 }
