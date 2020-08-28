@@ -54,6 +54,7 @@
               <el-form-item label="头像">
                     <el-avatar size="large" :src="userInfo.avatar"></el-avatar>
                     <el-upload
+                    :headers="header"
                     :on-success="onSuccess"
                     class="upload-demo"
                     :action="uoloadAvatarUrl">
@@ -97,6 +98,7 @@
 <script>
 import orderApi from '~/api/order';
 import memberApi from '~/api/member';
+import {getToken} from '~/utils/auth'
 export default {
     layout: "index",
     created(){
@@ -112,12 +114,15 @@ export default {
         let copy = {};
         Object.assign(copy,userInfo);
         return {
+            header: {
+                token: getToken(),
+            },
             activeName: "1",
             userInfo: copy,
             oldPsw: "",
             newPsW: "",
             orderList: [],
-            uoloadAvatarUrl: "http://112.124.19.91/api/oss/oss/image",
+            uoloadAvatarUrl: "http://112.124.19.91/api/thirdparty/oss/image",
             paid: [],
             unpaid: []
         }

@@ -46,6 +46,7 @@
         </el-form-item>
         <el-form-item label="课程封面">
           <el-upload
+                :headers="header"
                 class="avatar-uploader"
                 :action="uploadCoverUrl"
                 :show-file-list="false"
@@ -73,12 +74,16 @@ import teacherApi from '@/api/teacher';
 import { getSubjectList } from '@/api/subject';
 import { saveCourseInfo, updateCourseInfo, getCourseInfoById  } from '@/api/course';
 import Tinymce from '@/components/Tinymce';
+import { getToken  } from '@/utils/auth'
 export default {
   components: {
       Tinymce,
   },
     data(){
         return {
+            header: {
+              token: getToken(),
+            },
             active: 1,
             courseInfo: {
                 teacherId: undefined,
@@ -97,7 +102,7 @@ export default {
               label: "title",
               value: "id"
             },
-             uploadCoverUrl: process.env.VUE_APP_BASE_API+"/oss/oss/image",
+             uploadCoverUrl: process.env.VUE_APP_BASE_API+"/thirdparty/oss/image",
 
         }
     },

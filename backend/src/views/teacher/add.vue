@@ -18,7 +18,9 @@
         <el-form ref="form" :model="teacher" label-width="80px">
 <el-form-item label="头像">
 
-  <image-cropper field="file" :value="showImageCropper" 
+  <image-cropper 
+              :headers="header"
+              field="file" :value="showImageCropper" 
               :url="uoloadAvatarUrl" 
               :width="300"
               :height="300"
@@ -68,6 +70,7 @@
 import api from '@/api/teacher';
 import ImageCropper from "@/components/ImageCropper";
 import PanThumb from '@/components/PanThumb';
+import { getToken  } from '@/utils/auth'
 export default {
   name: "TeacherAdd",
   components: {
@@ -77,6 +80,9 @@ export default {
   },
   data(){
     return {
+        header: {
+              token: getToken(),
+            },
       teacher: {
         name: "",
         level: 1,
@@ -86,7 +92,7 @@ export default {
         avatar: "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3359668377,2739778631&fm=26&gp=0.jpg",
       },
       showImageCropper: false,
-      uoloadAvatarUrl: process.env.VUE_APP_BASE_API+"/oss/oss/image",
+      uoloadAvatarUrl: process.env.VUE_APP_BASE_API+"/thirdparty/oss/image",
       
     }
   },
