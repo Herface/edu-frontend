@@ -33,13 +33,6 @@
         <el-form-item>
             <el-button type="primary"  @click="register">注册</el-button>
         </el-form-item>
-        <p class="sign-up-msg">
-          点击 “注册” 即表示您同意并愿意遵守协议
-          <br>
-          <a target="_blank" href="javascript:;">用户协议</a>
-          和
-          <a target="_blank" href="javascript:;">隐私政策</a> 。
-        </p>
       </el-form>
       <!-- 更多注册方式 -->
       <!-- <div class="more-sign">

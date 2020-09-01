@@ -62,6 +62,30 @@ export const constantRoutes = [
 
 export const asyncRoutes = [
   {
+    path: '/seckill',
+    component: Layout,
+    redirect: "/seckill/list",
+    meta: { title: '秒杀管理', icon: 'el-icon-menu'},
+    children: [
+      {
+        path: 'list',
+        component: () => import('@/views/seckill/list'),
+        meta: { title: '秒杀列表', icon: 'el-icon-more' }
+      },
+      {
+        path: 'add',
+        component: () => import('@/views/seckill/save_or_update'),
+        meta: { title: '添加秒杀', icon: 'el-icon-circle-plus-outline' }
+      },
+      {
+        path: 'edit/:id',
+        component: () => import('@/views/seckill/save_or_update'),
+        meta: { title: '秒杀修改', icon: 'el-icon-circle-plus-outline' },
+        hidden: true,
+      },
+    ]
+  },
+  {
     path: '/teacher',
     component: Layout,
     redirect: "/teacher/list",

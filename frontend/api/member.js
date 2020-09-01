@@ -6,7 +6,7 @@ export default {
         return request({
             // baseURL: BASE_URL,
             method: "POST",
-            url: "/ucenter/member/login",
+            url: "/ucenter/login",
             data: member
         });        
     },

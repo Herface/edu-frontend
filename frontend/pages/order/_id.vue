@@ -25,11 +25,11 @@
         </tr>
         <tr class="good">
           <td class="name First">
-            <a target="_blank" :href="'https://localhost:3000/course/'+order.courseId">
-              <img :src="order.courseCover"></a>
+            <router-link :to="'https://localhost:3000/course/'+order.courseId">
+              <img :src="order.courseCover"></router-link> 
             <div class="goodInfo">
               <input type="hidden" class="ids ids_14502" value="14502">
-              <a target="_blank" :href="'https://localhost:3000/course/'+ order.courseId">{{order.courseTitle}}</a>
+              <router-link  :to="'https://localhost:3000/course/'+ order.courseId">{{order.courseTitle}}</router-link>
             </div>
           </td>
           <td class="price">
@@ -56,7 +56,7 @@
         <div class="clear"></div>
         <div class="Main fl">
           <div class="fl">
-            <a :href="'/course/'+order.courseId">返回课程详情页</a>
+            <router-link :to="'/course/'+order.courseId">返回课程详情页</router-link>
           </div>
           <div class="fr">
             <p>共 <strong class="red">1</strong> 件商品，合计<span class="red f20">￥<strong
@@ -76,7 +76,7 @@
   width="30%"
   :before-close="handleClose">
   <el-row>
-    <el-col :span="10" :offset="7">
+    <el-col :span="12" :offset="6">
       打开微信扫描二维码完成支付
       <qriously :value="url" :size="200"></qriously>
     </el-col>
@@ -132,10 +132,10 @@ export default {
                    this.$router.push({path: `/video/${this.order.courseId}`});
                  }
                })
-              //  .catch(err =>{
-              //    this.$message.error("订单异常！");
-              //    this.dialogVisible = false;
-              //  });
+               .catch(err =>{
+                 this.$message.error("订单异常！");
+                 this.dialogVisible = false;
+               });
             }, 3000);
           })
         },

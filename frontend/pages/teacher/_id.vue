@@ -1,7 +1,7 @@
 <template>
   <div id="aCoursesList" class="bg-fa of">
 
-    <h1 v-if="!teacher">404</h1>
+    <h1 v-if="!loading">404</h1>
     <!-- 讲师介绍 开始 -->
     <section v-else class="container">
       <header class="comm-title">

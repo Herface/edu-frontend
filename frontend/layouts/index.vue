@@ -6,14 +6,23 @@
             <logo style="width:80px;height: 80px"></logo>
   </el-col>
   <el-col :span="10">
-    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal"  router >
+    <el-menu background-color="#ffffff00" 	  :default-active="activeIndex" class="el-menu-demo" mode="horizontal"  router >
   <el-menu-item index="/" >首页</el-menu-item>
   <el-menu-item index="/course">课程</el-menu-item>
   <el-menu-item index="/teacher" >名师</el-menu-item>
+  <el-menu-item index="/seckill">
+    <el-badge value="new" >限时秒杀</el-badge>
+  </el-menu-item>
   <el-menu-item index="/ucenter/center">个人中心</el-menu-item>
 </el-menu>
   </el-col>
   <el-col :span="4">
+     <el-input size="mini" v-model="keyword" placeholder="输入关键字搜索">
+             <el-button slot="append" icon="el-icon-search" @click="search"></el-button>
+           </el-input>
+  </el-col>
+  <el-col :span="4">
+          
            <ul class="h-r-login">
             <li v-if="$store.getters['user/userInfo']===null" id="no-login">
               <a href="javascript:;" @click="$router.push('/login')" title="登录">
@@ -53,23 +62,7 @@
   <nuxt></nuxt>
 </el-main>
 <el-footer>
- <section class="container">
-        <div class="b-foot">
-          <aside class="fl col-3 tac mt15">
-            <section class="gf-tx">
-              <span>
-                <img src="~/assets/img/wx-icon.png" alt>
-              </span>
-            </section>
-            <section class="gf-tx">
-              <span>
-                <img src="~/assets/img/wb-icon.png" alt>
-              </span>
-            </section>
-          </aside>
-          <div class="clear"></div>
-        </div>
-      </section>
+
 
 </el-footer>
 
@@ -98,6 +91,7 @@ export default {
   data(){
     return {
       activeIndex: "/",
+      keyword: "",
     }
   },
     created(){
@@ -117,7 +111,11 @@ export default {
         if (token) {
             this.$store.dispatch("user/getUserInfoByToken",token);
         } 
-
+      },
+      search(){
+        if (this.keyword.trim().length > 0) {
+          this.$router.push(`/search?keyword=${this.keyword}`)
+        }
       }
     }
 }

@@ -13,7 +13,7 @@ export function updateCourseInfo(courseInfo){
     return request({
         url: `/edu/admin/course/${courseInfo.id}`,
         method: "put",
-        data: courseInfom
+        data: courseInfo
     });
 }
 export function getCourseInfoById(id){
@@ -53,6 +53,13 @@ export function publishCourseById(id){
 export function getPublishCourseById(id){
     return request({
         url: `/edu/admin/course/publish/${id}`,
+        method: "get"
+    });
+}
+
+export function listCourses(){
+    return request({
+        url: `/edu/course`,
         method: "get"
     });
 }

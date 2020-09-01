@@ -33,6 +33,8 @@
                     <span>{{order.courseTitle}}</span>
                     <div class="bottom clearfix">
                     <el-button type="text" class="button" @click="toPay(order.orderNo)">立即支付</el-button>
+                    <el-button type="text" style="color:red" @click="deleteOrderById(order.id)">删除</el-button>
+
                     </div>
                 </div>
                 </el-card>
@@ -159,6 +161,23 @@ export default {
         },
         toPay(orderNo){
             this.$router.push(`/order/${orderNo}`)
+        },
+        deleteOrderById(id){
+
+                   this.$confirm('是否删除?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+                orderApi.deleteOrderById(id).then(res=>{
+                this.$message.success("删除成功");
+                this.getOrderList();
+            })
+     
+
+        });
+        
+
         }
     }
 

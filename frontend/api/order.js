@@ -36,5 +36,11 @@ export default {
             url: `/order/order/user/${userId}`,
             method: "GET"
         });
+    },
+    deleteOrderById(id){
+        return request({
+            url: `/order/order/${id}`,
+            method: "DELETE"
+        });
     }
 }

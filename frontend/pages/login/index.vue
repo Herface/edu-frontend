@@ -5,9 +5,9 @@
     <el-col :span="10" :offset="7">
  <el-form ref="userForm" :model="user" label-width="80px">
 
-        <el-form-item label="手机号码" prop="mobile" :rules="[{ required: true, message: '请输入手机号码', trigger: 'blur' },{validator: checkPhone, trigger: 'blur'}]">
+        <el-form-item label="手机号码" prop="username" :rules="[{ required: true, message: '请输入手机号码', trigger: 'blur' },{validator: checkPhone, trigger: 'blur'}]">
           
-            <el-input suffix-icon="el-icon-phone-outline" type="text" placeholder="手机号" v-model="user.mobile"/>
+            <el-input suffix-icon="el-icon-phone-outline" type="text" placeholder="手机号" v-model="user.username"/>
            
       
         </el-form-item>
@@ -39,7 +39,7 @@
     data () {
       return {
         user:{
-          mobile:'',
+          username:'',
           password:''
         },
         loginInfo:{}
