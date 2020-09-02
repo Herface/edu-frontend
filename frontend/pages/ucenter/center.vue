@@ -86,7 +86,7 @@
                   <el-input type="password" v-model="newPsW" placeholder=""></el-input>
              </el-form-item>
              <el-form-item >
-                 <el-button type="primary" @click="updatePsw()">保存</el-button>
+                 <el-button type="primary" @click="updatePsw()" :loading="updatingPsw">保存</el-button>
              </el-form-item>
             </el-form>
         </el-tab-pane>
@@ -116,6 +116,7 @@ export default {
         let copy = {};
         Object.assign(copy,userInfo);
         return {
+            updatingPsw: false,
             header: {
                 token: getToken(),
             },
@@ -149,8 +150,13 @@ export default {
         },
         updatePsw(){
             let o = this.oldPsw,n = this.newPsW;
+            this.updatingPsw = true;
             memberApi.updatePsw(this.userInfo.id,{oldPsw:o,newPsw: n}).then(res=>{
                this.$message.success("保存成功");
+               this.updatingPsw = true;
+            }).catch(err=>{
+                 this.updatingPsw = true;
+
             })
         },
         onSuccess(res){

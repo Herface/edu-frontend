@@ -1,20 +1,17 @@
 import request from '@/utils/request'
 
-const BASE_URL = "http://localhost/api";
 
 export default  {
   getRoleList(){
     return request({
       url: "/acl/admin/role",
       method: "get",
-      baseURL: BASE_URL,
     });
   },
   getRoleListByUserId(userId){
     return request({
       url: `/acl/admin/role/user/${userId}`,
       method: "get",
-      baseURL: BASE_URL,
     });
   },
   assignRoleForUser(userId,roleIds){
@@ -22,7 +19,6 @@ export default  {
     return request({
       url: `/acl/admin/role/user/${userId}`,
       method: "post",
-      baseURL: BASE_URL,
       data: roleIds
     });
   },
@@ -31,13 +27,11 @@ export default  {
     return request({
       url: "/acl/admin/role/"+id,
       method: "get",
-      baseURL: BASE_URL,
     });
   },
 
   addRole(role){
     return request({
-      baseURL: BASE_URL,
       url: "/acl/admin/role",
       method: "post",
       data: role,
@@ -46,7 +40,6 @@ export default  {
 
   updateRoleById(id,role){
     return request({
-      baseURL: BASE_URL,
       url: "/acl/admin/role/"+id,
       method: "put",
       data: role,
@@ -56,7 +49,6 @@ export default  {
   
   deleteRoleById(id){
     return request({
-      baseURL: BASE_URL,
       url: "/acl/admin/role/"+id,
       method: "delete",
     })

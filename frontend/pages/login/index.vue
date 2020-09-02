@@ -18,7 +18,7 @@
             
         </el-form-item>
         <el-form-item label="">
-          <el-button style="display:block;width: 100%" type="primary" @click="login">登录</el-button>
+          <el-button style="display:block;width: 100%" type="primary" :loading="logging" @click="login">登录</el-button>
         </el-form-item>
         <!-- <el-form-item label="">
           <el-button style="display:block;width: 100%" type="success" @click="wxLogin">微信登录</el-button>
@@ -38,6 +38,7 @@
 
     data () {
       return {
+        logging: false,
         user:{
           username:'',
           password:''
@@ -58,15 +59,19 @@
       login(){
         this.$refs.userForm.validate((valid)=>{
           if (valid) {
+            this.logging  = true;
            memberApi.login(this.user).then(res=>{
           // console.log(res);
           // localStorage.setItem("token",res.data.token);
           setToken(res.data.token);
+          this.logging = false;
           this.$store.dispatch("user/getUserInfoByToken",res.data.token).then(()=>{
                   let redirect = this.$route.query.redirect;
                   this.$router.push({path: redirect || '/'});
           });
           
+        }).catch(err=>{
+           this.logging = false;
         })
           }
         })

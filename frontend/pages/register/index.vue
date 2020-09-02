@@ -31,7 +31,7 @@
           <div class="g-recaptcha" data-sitekey="6LdEobgZAAAAADKa4nDJ-gXBR5PFODj1izf68pev" data-callback="onSuccess"></div>
         </el-form-item> -->
         <el-form-item>
-            <el-button type="primary"  @click="register">注册</el-button>
+            <el-button type="primary" :loading="loading"  @click="register">注册</el-button>
         </el-form-item>
       </el-form>
       <!-- 更多注册方式 -->
@@ -60,6 +60,7 @@
     layout: 'index',
     data() {
       return {
+        loading: false,
         member: { //封装注册输入数据
           mobile: '',
           code: '',  //验证码
@@ -76,12 +77,14 @@
           this.$refs.userForm.validateField("mobile",(valid)=>{
             // console.log(this.sending);
               if (!valid ){
+                  
                 if (this.sending) {
                  this.sending = false;
                 memberApi.getCode(this.member.mobile).then(res=>{
                     this.countDown();
                 }).catch(err=>{
                       this.sending = true;
+
                     });
                 }
          
@@ -98,9 +101,16 @@
         register(){
             this.$refs.userForm.validate((valid)=>{
                 if (valid) {
+                   this.loading  = true;
+
                     memberApi.register(this.member).then(res=>{
                         this.$message.success("注册成功！");
+                      this.loading  = false;
+
                         this.$router.push({path: "/login"});
+                    }).catch(err=>{
+                                            this.loading  = false;
+
                     });
 
         } else {
